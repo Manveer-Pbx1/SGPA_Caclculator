@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGPA Calculator</title>
+</head>
+<link rel="stylesheet" type="text/css" href="index.css">
+<body>
+    <h1><span style="color: #3085C3">SGPA</span> <span style="color: #D80032">Calculator</span><h1>
+        <br><br>
+    <h2 style="text-align: center;">Hi there! Please enter your marks (Subject-wise) to calculate the SGPA:</h2>
+    <div class="content">
+        <br/><br/>
+    <div> 
+        <label for="subjectMarks1">Enter Marks (0-100) for Subject 1:</label>
+        <input type="number" id="subjectMarks1" min="0" max="100" required>
+    </div>
+        <br>
+    <div>
+        <label for="subjectCredits1">Enter Credits (2-4) for Subject 1:</label>
+        <input type="number" id="subjectCredits1" min="2" max="4" required>
+    </div>
+    <br/><br/><br/>
+    <div>
+        <label for="subjectMarks2">Enter Marks (0-100) for Subject 2:</label>
+        <input type="number" id="subjectMarks2" min="0" max="100" required>
+    </div>
+    <br>
+    <div>
+        <label for="subjectCredits2">Enter Credits (2-4) for Subject 2:</label>
+        <input type="number" id="subjectCredits2" min="2" max="4" required>
+    </div>
+    <br/><br/><br/>
+    <div>
+        <label for="subjectMarks3">Enter Marks (0-100) for Subject 3:</label>
+        <input type="number" id="subjectMarks3" min="0" max="100" required>
+    </div>
+    <br>
+    <div>
+        <label for="subjectCredits3">Enter Credits (2-4) for Subject 3:</label>
+        <input type="number" id="subjectCredits3" min="2" max="4" required>
+    </div>
+    <br/><br/><br/>
+    <div>
+        <label for="subjectMarks4">Enter Marks (0-100) for Subject 4:</label>
+        <input type="number" id="subjectMarks4" min="0" max="100" required>
+    </div>
+    <br>
+    <div>
+        <label for="subjectCredits4">Enter Credits (2-4) for Subject 4:</label>
+        <input type="number" id="subjectCredits4" min="2" max="4" required>
+    </div>
+    <br/><br/><br/>
+    <div>
+        <label for="subjectMarks5">Enter Marks (0-100) for Subject 5:</label>
+        <input type="number" id="subjectMarks5" min="0" max="100" required>
+    </div>
+    <br>
+    <div>
+        <label for="subjectCredits5">Enter Credits (2-4) for Subject 5:</label>
+        <input type="number" id="subjectCredits5" min="2" max="4" required>
+    </div>
+    <br/><br/><br/>
+    <div>
+        <label for="subjectMarks6">Enter Marks (0-100) for Subject 6:</label>
+        <input type="number" id="subjectMarks6" min="0" max="100" required>
+    </div>
+    <br>
+    <div>
+        <label for="subjectCredits6">Enter Credits (2-4) for Subject 6:</label>
+        <input type="number" id="subjectCredits6" min="2" max="4" required>
+    </div>
+    <br/><br/><br/>
+
+    <button onclick="calculateSGPA()">Calculate SGPA</button>
+    <br/><br/><br/>
+    <section>
+    <p>Total Credits: <span id="totalCredits">0</span></p>
+    <p>Total Marks: <span id="totalMarks">0</span></p>
+    <p>SGPA: <span id="sgpa">-</span></p>
+</section>  
+    <footer class="footer">
+        <p>Made with 💖 by <span style= "color: red">Manveer</span></p>
+        <p>All rights reserved</p>
+        <li class = "GitHub"><a href= "https://github.com/Manveer-Pbx1"> My GitHub </a></li>
+    </footer>
+    </div>
+    <script>
+        function calculateSGPA() {
+            let totalSGPA = 0;
+            let totalCredits = 0;
+            let totalMarks = 0;
+
+            for (let i = 1; i <= 6; i++) {
+                const marksInput = document.getElementById(`subjectMarks${i}`);
+                const creditsInput = document.getElementById(`subjectCredits${i}`);
+
+                const marks = parseInt(marksInput.value);
+                const credits = parseInt(creditsInput.value);
+
+                let sgpa = null;
+
+                if (marks >= 90 && marks <= 100) {
+                    sgpa = 10;
+                } else if (marks >= 80 && marks < 90) {
+                    sgpa = 9;
+                } else if (marks >= 70 && marks < 80) {
+                    sgpa = 8;
+                } else if (marks >= 60 && marks < 70) {
+                    sgpa = 7;
+                } else if (marks >= 50 && marks < 60) {
+                    sgpa = 6;
+                } else if (marks >= 40 && marks < 50) {
+                    sgpa = 5;
+                } else if (marks >= 0 && marks < 40) {
+                    sgpa = 2;
+                }
+
+                if (sgpa !== null) {
+                    sgpa *= credits;
+                    totalCredits += credits;
+                    totalSGPA += sgpa;
+                    totalMarks += marks;
+                } else {
+                    alert(`Invalid details for Subject ${i}. Please check your marks.`);
+                    return; 
+                }
+            }
+
+            if (totalCredits === 0) {
+                alert("Total credits cannot be zero. Please enter valid credits.");
+                return;
+            }
+
+            const sgpaResult = totalSGPA / totalCredits;
+            document.getElementById("totalCredits").textContent = totalCredits;
+            document.getElementById("totalMarks").textContent = totalMarks;
+            document.getElementById("sgpa").textContent = sgpaResult.toFixed(2);
+        }
+    </script>
+</body>
+</html>

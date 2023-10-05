@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    font-family: monospace; 
+    background: #FAF3F0;
+}
+
+img{
+    height: 15vh;
+    width:  45vh;
+    position: relative;
+}
+a{
+    text-decoration: none;
+    color: #A8DF8E;
+}
+a:hover{
+    box-shadow: 0px 0px 0.6px white;
+}
+
+.content{
+    text-align: center;
+    font-size: 1.3rem;
+}
+input{
+    background-color: #CDFAD5;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.3rem;
+    border: 0.2px solid;
+}
+h1{
+    text-align: center;
+}
+.GitHub{
+    font-size: 0.9rem;
+    text-align: center;
+    list-style: none;
+
+}
+button{
+    border-radius: 0.6rem;
+    border: 0.4px solid #176B87;
+    font-weight: 600;
+    background: #1AACAC;
+    padding: 10px;
+    font-size: 15px;
+}
+section{
+    font-size: 1.3rem;
+}
+.footer{
+    text-align: center;
+    background: black;
+    position: relative;
+    height: 4.3rem;
+    color: white;
+}
+span{
+    color: red;
+}
